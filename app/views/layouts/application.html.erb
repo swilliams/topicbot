@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><%= raw("#{yield(:title)} - ") if content_for?(:title) %>Jackal Suggestion Machine</title>
+	<title><%= raw("#{yield(:title)} - ") if content_for?(:title) %>Topicbot</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -17,11 +17,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-				<%= link_to "Jackal Suggestion Machine", root_path, class: "navbar-brand" %>
+				<%= link_to "Topicbot", root_path, class: "navbar-brand" %>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-					<!-- <%= nav_link("Home", root_path) %> -->
 					<%= nav_link("Topics", topics_path) %>
 					<%= nav_link("About", "/about") %>
         </ul>

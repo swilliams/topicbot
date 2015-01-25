@@ -13,6 +13,18 @@ A topic suggestion app for podcasters. Currently powering [topics.5by5.tv](http:
 7. `foreman run rake db:setup`
 8. `foreman start`
 
+## Adding an Admin User
+
+To create topics, you'll need to create at least one admin user. You should do this right away and on the first user you create, like this:
+
+1. Sign in with Twitter (click the link on the top right of the site) and authorize yourself.
+2. `foreman run rails c`
+3. `u = User.first`
+4. `u.is_admin = true`
+5. `u.save`
+
+Now you can create topics.
+
 ## Want to Contribute?
 
 Great! Fork the repo and open a pull request. Thanks in advance!
