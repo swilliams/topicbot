@@ -1,0 +1,46 @@
+<% title @topic.title %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="page-header">
+        <h1><%= @topic.title %></h1>
+				<p class="text-muted">
+					By <%= link_to @topic.user.twitter_nickname, @topic.user.twitter_url, target: "_blank" %> | <%= time_ago_in_words @topic.created_at %> ago <%= link_to("[Edit]", edit_topic_path(@topic)) if current_user.present? && current_user.is_admin? %>
+				</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+
+			<p id="notice"><%= notice %></p>
+			
+	    <% @questions.each do |question| %>
+        <h4>
+					<% if current_user.present? %>
+						<% if current_user.vote_question_ids.include?(question.id) %>
+							<%= link_to fa_icon("remove"), topic_question_unvote_path(@topic, question), method: :post, title: "Remove My Vote" %>
+							<% else %>
+							<%= link_to fa_icon("arrow-up"), topic_question_vote_path(@topic, question), method: :post, title: "Upvote" %>
+						<% end %>&nbsp;
+          <% end %><%= question.body %>
+        </h4>
+				<p class="text-muted">
+					<small><%= pluralize question.vote_count, "Vote" %> | By <%= link_to question.user.twitter_nickname, question.user.twitter_url, target: "_blank" %> | <%= time_ago_in_words question.created_at %> ago <%= link_to("[Delete]", topic_question_path(@topic, question), method: :delete, data: { confirm: 'Are you sure?' }) if current_user.present? && (question.user==current_user || current_user.is_admin?) %></small>
+				</p>
+				<hr>
+			<% end %>
+		</div>
+	</div>
+	  <div class="row">
+	    <div class="col-xs-9">
+				<% if current_user.present? %>
+					<h4>Add Your Response</h4>
+					<%= render 'questions/form' %>
+				<% else %>
+					<h4>Want to Vote and Suggest?</h4>
+					<a href="/auth/twitter" class="btn btn-primary">Sign in with Twitter</a>
+				<% end %>
+	    </div>
+	  </div>
+</div>
