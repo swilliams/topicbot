@@ -2,6 +2,12 @@
 
 A topic suggestion app for podcasters. Currently powering [topics.5by5.tv](http://topics.5by5.tv/).
 
+## Run Your Own
+
+To create your own Topicbot running on Heroku, sign up for a [free Heroku account](https://signup.heroku.com/www-header) if you don't have one, then click this:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ## To Develop
 
 1. `gem install foreman`
