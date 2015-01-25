@@ -29,3 +29,7 @@ Now you can create topics.
 
 Great! Fork the repo and open a pull request. Thanks in advance!
 
+## Todo
+
+1. Add a way to mark suggestions/questions as *answered*, with a link to the answer.
+2. Create a better way to navigate users and make them admins.
