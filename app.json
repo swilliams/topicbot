@@ -20,7 +20,9 @@
     },
     "SECRET_KEY_BASE": {
       "generator": "secret"
-    }
+    },
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production"
   },
   "addons": [
     "heroku-postgresql:hobby-dev",
